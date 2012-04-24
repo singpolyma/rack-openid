@@ -128,7 +128,7 @@ module Rack #:nodoc:
           return redirect_to(url)
         rescue ::OpenID::OpenIDError, Timeout::Error => e
           env[RESPONSE] = MissingResponse.new
-          return @app.call(env)
+          return self.call(env)
         end
       end
 
